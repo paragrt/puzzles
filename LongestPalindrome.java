@@ -5,8 +5,8 @@ public class LongestPalindrome {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String[] s = {"zasaabbaacxyq"    //even length
-						,"abcdMalayalam" //odd length
-						,"xyzabcdefghi"  //no palindrome
+			,"abcdMalayalam" //odd length
+			,"xyzabcdefghi"  //no palindrome
 		};
 		for(int i = 0; i < s.length; i++) {
 			String pal = palindromeUtil(s[i]);
