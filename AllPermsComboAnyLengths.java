@@ -1,5 +1,5 @@
 
-package strings;
+package algorithms;
 
 import java.util.ArrayList;
 import java.util.HashSet;
