@@ -17,7 +17,7 @@ public class LongestPalindrome {
 	/**
 	 * @param s
 	 * @param arr
-	 * @return
+	 * @return String longest palindrome if it exists or a message "Not Found Palindrome"
 	 */
 	private static String palindromeUtil(String s) {
 		char[] arr = s.toCharArray();
