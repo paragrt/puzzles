@@ -43,7 +43,7 @@ public class AllPermsComboAnyLengths {
 		for(int i = 0; i < word.length(); i++)
 		{
 			String p1 = prefix + word.charAt(i);
-            String p2 = word.substring(0, i) + word.substring(i+1, word.length());
+            		String p2 = word.substring(0, i) + word.substring(i+1, word.length());
 			allPerms(p1,p2,min, max,result);
 		}	
 	}
@@ -55,8 +55,8 @@ public class AllPermsComboAnyLengths {
 		for(int i = 0; i < word.length(); i++)
 		{
 			String p1 = prefix + word.charAt(i);
-            String p2 = word.substring(0, i) + word.substring(i+1, word.length());
-            allCombos(p1,p2,min, max,result);
+            		String p2 = word.substring(0, i) + word.substring(i+1, word.length());
+            		allCombos(p1,p2,min, max,result);
 		}	
 	}
 }
