@@ -5,6 +5,22 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
+/*
+ * Sample Input
+ * 
+2 <-- Nbr of testcases
+5 <-- Nbr of Dic words
+GEEKS FOR QUIZ GO SEEK <-- the actual words in dic
+3 3 <-- dimension of word boggle
+G I Z U E K Q S E <-- rearrange into 3 by 3 char array
+GEEKS QUIZ SEEK <-- answer printed by below code
+6 <-- next test case's dic word count
+EBD C BFD E EEC F <-- dic words
+2 5 <-- boggle word array dim
+E E E E C B F E E E <---rearrange into 2X5
+C E EEC F  <-- answer
+ */
+
 public class WordBoggle {
 	static Set<String> dictionary = new HashSet<String>();
     static Set<String> foundWords = new HashSet<String>();
