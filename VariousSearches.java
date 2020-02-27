@@ -1,5 +1,11 @@
 package algorithms;
+/*
+LoopCount = 5 for BinSrch Found tgt1=1 at index position:0
+LoopCount = 3 for BinSrch Found tgt2=1000 at index position:26
+LoopCount = 1 for ExpSrch Found tgt1=1 at index position:0
+LoopCount = 2 for ExpSrch Found tgt2=1000 at index position:26
 
+*/
 public class VariousSearches {
 
 	static int loopcount = 0;
