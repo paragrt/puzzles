@@ -1,6 +1,7 @@
 package algorithms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -48,8 +49,8 @@ _________________________
 
 public class KnightsTour {
 
-	static int m = 5;
-	static int n = 5;
+	static int m = 6;
+	static int n = 6;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -70,60 +71,66 @@ public class KnightsTour {
 				boolean[][] visited = new boolean[n][m];// all are not visited
 				visited[i][j] = true; // except starting point
 				List<String> steps = new ArrayList<>();
-				steps.add("["+i+","+j+"]");
+				steps.add("[" + i + "," + j + "]");
 				boolean ans = knightsTour(board, i, j, visited, steps);
-				
+
 				if (ans) {
-					System.out.print( "\nTour#"+ (tourNbr++) + "==============================" );
+					System.out.print("\nTour#" + (tourNbr++) + "==============================");
 					printTour(steps);
 				}
 			}
 
 	}
 
+	static String repeatChar(char c, int number) {
+		char[] repeat = new char[number];
+		Arrays.fill(repeat, c);
+		return new String(repeat);
+	}  
 	static void printTour(List<String> steps) {
-		System.out.println("\n_________________________");
-		for(int i = 0; i < m;i++)
-		{
+		System.out.println("\n"+repeatChar('_', 5*n+1));
+		for (int i = 0; i < m; i++) {
 			System.out.print("|");
-			for(int j = 0;j<n;j++)
-			{
-				int idx = steps.indexOf("["+i+","+j+"]");
-				System.out.printf("%3d |", idx); 
+			for (int j = 0; j < n; j++) {
+				int idx = steps.indexOf("[" + i + "," + j + "]");
+				System.out.printf("%3d |", idx);
 			}
-			System.out.println("\n_________________________");
+			System.out.println("\n"+repeatChar('_', 5*n+1));
 		}
-		
+
 	}
 
 	static boolean knightsTour(int[][] board, int i, int j, boolean[][] visited, List<String> steps) {
 		// find places to visit
 		List<int[]> movesList = findPossibleNextSteps(board, i, j, visited);
-		//System.out.println(steps);
-		// if none available, check if all board visited to declare victory or give up on this path
+		// System.out.println(steps);
+		// if none available, check if all board visited to declare victory or give up
+		// on this path
 		if (movesList.isEmpty()) {
-			boolean ans = (steps.size() == (m*n));
-			//if ( ans ) System.out.println(steps.size() + ":"+ steps);
-			
-			return ans;
-		}
-		//if not empty...add options to the Queue
-		for (int[] nextStep : movesList) {
-			// move there
-			steps.add("["+nextStep[0]+","+nextStep[1]+"]");
-			visited[nextStep[0]][nextStep[1]] = true;
-			// dig deeper into the tour
-			boolean ans = knightsTour(board, nextStep[0], nextStep[1], visited, steps);
-			// if ans is false...give up on this last move, backtrack
-			if ( !ans ) {
-				if ( !steps.isEmpty()) steps.remove(steps.size() - 1);// remove last one
-				visited[nextStep[0]][nextStep[1]] = false;//unmark that visited so it may be convered in subsequent path
-			} else {
-				return true;
-			}
-			// loop back to the next move
-		}
+			boolean ans = (steps.size() == (m * n));
+			// if ( ans ) System.out.println(steps.size() + ":"+ steps);
 
+			return ans;
+		} else {
+			// if not empty...add options to the Queue
+			for (int[] nextStep : movesList) {
+				// move there
+				steps.add("[" + nextStep[0] + "," + nextStep[1] + "]");
+				visited[nextStep[0]][nextStep[1]] = true;
+				// dig deeper into the tour
+				boolean ans = knightsTour(board, nextStep[0], nextStep[1], visited, steps);
+				// if ans is false...give up on this last move, backtrack
+				if (!ans) {
+					if (!steps.isEmpty())
+						steps.remove(steps.size() - 1);// remove last one
+					visited[nextStep[0]][nextStep[1]] = false;// unmark that visited so it may be convered in subsequent
+															// path
+				} else {
+					return true;
+				}
+				// loop back to the next move
+			}
+		}
 		return false;
 	}
 
