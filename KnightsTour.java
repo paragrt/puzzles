@@ -49,8 +49,8 @@ _________________________
 
 public class KnightsTour {
 
-	static int m = 6;
-	static int n = 6;
+	static int m = 5;
+	static int n = 5;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
