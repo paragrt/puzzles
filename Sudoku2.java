@@ -6,7 +6,8 @@ import java.util.List;
 public class Sudoku2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Array of boards is just a a list of sudoku starting puzzles used for testing
+		// At the bottom of this class.
 		for (int k = 0; k < array_of_boards.length; k++) {
 			int[][] board1 = array_of_boards[k];
 			solveSudoku(board1, 0);
