@@ -59,4 +59,21 @@ public class AllPermsComboAnyLengths {
             		allCombos(p1,p2,min, max,result);
 		}	
 	}
+	static void combo(String prefix, String word)
+	  {
+	    
+	    if (word.length() == 0)
+	    	System.out.println("__"+prefix);
+
+	    for (int i = 0 ; i < word.length() ; i++)
+	      combo(prefix + word.charAt(i), word.substring(i+1));
+	  }
+	  static void permute(String prefix, String word)
+	  {
+	    if (word.length() == 0)
+	      System.out.println("-->" + prefix);
+
+	    for (int i = 0 ; i < word.length() ; i++)
+	      permute(prefix + word.charAt(i), word.substring(0, i) + word.substring(i+1));
+	  }
 }
